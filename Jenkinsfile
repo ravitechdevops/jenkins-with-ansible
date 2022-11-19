@@ -1,10 +1,10 @@
 pipeline {
   agent { 
-  label 'ansible'
+  label 'ansible-node'
   }
   
   environment {
-   AWS_EC2_PRIVATE_KEY=credentials('ec2-private-key') 
+   AWS_EC2_PRIVATE_KEY=credentials('ec2-user-key') 
   }
   
   stages {
@@ -12,7 +12,7 @@ pipeline {
     //Get the Code from GitHub Repo
     stage('CheckOutCode'){
       steps{
-        git branch: 'master', credentialsId: 'aeeaa4ad-45b4-4c30-9401-586ac501a9bb', url: 'https://github.com/MithunTechnologiesDevOps/jenkins-with-ansible.git'
+        git branch: 'master', credentialsId: '919b152b-9b55-46c5-91ad-41b62ee996f7', url: 'https://github.com/ravitechdevops/jenkins-with-ansible.git'
       }
     }
      
